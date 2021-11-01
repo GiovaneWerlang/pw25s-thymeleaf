@@ -1,16 +1,11 @@
 package com.example.pw25s.model;
 
-import javax.validation.constraints.NotBlank;
-
 public class PedidoSalvarDTO {
 
-    @NotBlank(message = "Campo obrigatório")
     private String nomePedido;
 
-    @NotBlank(message = "Campo obrigatório")
     private String urlItem;
 
-    @NotBlank(message = "Campo obrigatório")
     private String urlImagem;
 
     private String descricao;

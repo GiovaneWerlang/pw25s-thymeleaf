@@ -6,8 +6,13 @@
     <title>HomePage</title>
 </head>
 <body>
-    <div class="container mt-3" th:each="pedido: ${pedidos}">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <div class="container mt-3">
+        <div class="py-5 px-3" style="background-color: #eee">
+            <div class="jumbotron mb-0">
+                <h1 class="display-4">Pedidos</h1>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand navbar-light bg-light mb-3">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -24,11 +29,11 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                 <button class="btn btn-outline-success" ><a href="novo-pedido">Novo</a></button>
+                    <a href="/pedido/novo"><button class="btn btn-success my-2 mx-3" >Novo</button></a>
                 </div>
             </div>
         </nav>
-        <div class="card" >
+        <div class="card mb-3" th:each="pedido: ${pedidos}">
             <div class="card-header" th:text="${pedido.nome}">Nome do produto</div>
             <div class="card-body row">
                 <div class="col-12 col-sm-8 mb-3">
