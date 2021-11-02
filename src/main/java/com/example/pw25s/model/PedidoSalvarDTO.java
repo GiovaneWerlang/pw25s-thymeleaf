@@ -1,11 +1,16 @@
 package com.example.pw25s.model;
 
+import javax.validation.constraints.NotBlank;
+
 public class PedidoSalvarDTO {
 
-    private String nomePedido;
+    @NotBlank //NotBlank.pedidoSalvarDTO.nomeProduto
+    private String nomeProduto;
 
-    private String urlItem;
+    @NotBlank
+    private String urlProduto;
 
+    @NotBlank
     private String urlImagem;
 
     private String descricao;
@@ -13,20 +18,20 @@ public class PedidoSalvarDTO {
     public PedidoSalvarDTO() {
     }
 
-    public String getNomePedido() {
-        return nomePedido;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public void setNomePedido(String nomePedido) {
-        this.nomePedido = nomePedido;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
-    public String getUrlItem() {
-        return urlItem;
+    public String getUrlProduto() {
+        return urlProduto;
     }
 
-    public void setUrlItem(String urlItem) {
-        this.urlItem = urlItem;
+    public void setUrlProduto(String urlProduto) {
+        this.urlProduto = urlProduto;
     }
 
     public String getUrlImagem() {
@@ -47,8 +52,8 @@ public class PedidoSalvarDTO {
 
     public Pedido toPedido() {
         Pedido pedido = new Pedido();
-        pedido.setNome(nomePedido);
-        pedido.setUrlItem(urlItem);
+        pedido.setNome(nomeProduto);
+        pedido.setUrlItem(urlProduto);
         pedido.setUrlImagem(urlImagem);
         pedido.setDescricao(descricao);
         return pedido;

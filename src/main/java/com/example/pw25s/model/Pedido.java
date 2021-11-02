@@ -1,9 +1,8 @@
 package com.example.pw25s.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.pw25s.model.enums.StatusPedido;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -20,6 +19,10 @@ public class Pedido {
     private String descricao;
     private String urlItem;
     private String urlImagem;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusPedido status = StatusPedido.AGUARDANDO;
 
     public Pedido() {
     }
@@ -78,5 +81,13 @@ public class Pedido {
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
     }
 }
