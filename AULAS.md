@@ -9,3 +9,10 @@
 - Aula 26/10: síncrona
 - Aula 27/10: (feriado)
 - Aula 29/10: https://youtu.be/73-bC8jjJ4A :: reposição 29/09 
+
+##JPA
+
+- metodos -> https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+- query's -> https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query.spel-expressions
+
+

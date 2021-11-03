@@ -5,6 +5,7 @@ import com.example.pw25s.model.enums.StatusPedido;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Pedido {
@@ -15,7 +16,7 @@ public class Pedido {
 
     private String nome;
     private BigDecimal valor;
-    private LocalDate dataEntrega;
+    private Date dataEntrega;
     private String descricao;
     private String urlItem;
     private String urlImagem;
@@ -51,11 +52,11 @@ public class Pedido {
         this.valor = valor;
     }
 
-    public LocalDate getDataEntrega() {
+    public Date getDataEntrega() {
         return dataEntrega;
     }
 
-    public void setDataEntrega(LocalDate dataEntrega) {
+    public void setDataEntrega(Date dataEntrega) {
         this.dataEntrega = dataEntrega;
     }
 

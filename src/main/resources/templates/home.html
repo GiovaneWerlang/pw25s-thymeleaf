@@ -6,7 +6,7 @@
 
     <div class="container mt-3">
         <div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
-        <nav th:replace="~{base :: nav('todos')}"></nav>
+        <nav th:replace="~{base :: nav}"></nav>
 
         <div class="card mb-3" th:each="pedido: ${pedidos}">
             <th:block th:switch="${pedido.status.name()}">
@@ -17,8 +17,10 @@
             <div class="card-body row">
                 <div class="col-12 col-sm-8 mb-3">
                     <div class="row mb-1">
-                        <div class="col-md-5 mb-1">Valor: <span th:text="${pedido.valor}">R$ 200,00</span></div>
-                        <div class="col-md-7">Data de entrega: <span th:text="${pedido.dataEntrega}">20/20/2010</span></div>
+                        <div class="col-md-5 mb-1">Valor: <span th:text="${#numbers.formatCurrency(pedido.valor)}">R$ 200,00</span></div>
+                        <div class="col-md-7">Data de entrega:
+                            <span th:text="${#dates.format(pedido.dataEntrega, 'dd/MM/yyyy')}">20/20/2010</span>
+                        </div>
                     </div>
                     <div class="mb-1">URL: <input class="form-control" th:value="${pedido.urlItem}" value="http://amazon.com/nome-do-produto"/></div>
                     <div class="mb-1">Descrição: <textarea class="form-control" th:text="${pedido.descricao}">qualquer descrição sobre o pedido</textarea></div>
