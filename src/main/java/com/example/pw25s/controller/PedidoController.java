@@ -26,8 +26,7 @@ public class PedidoController {
     public String salvarPedido(@Valid PedidoSalvarDTO pedidoSalvarDTO, BindingResult result){
         if(!result.hasErrors()) {
             pedidoRepository.save(pedidoSalvarDTO.toPedido());
-            return "pedido/formulario";
         }
-        return "redirect:/home";
+        return "pedido/formulario";
     }
 }
