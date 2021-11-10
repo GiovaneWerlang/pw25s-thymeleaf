@@ -39,9 +39,15 @@
                 <a class="nav-link" th:classappend="${status} == 'entregue' ? 'active' : ''"
                    aria-current="page" href="/home/entregue">Entregue</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" th:with="url=${#httpServletRequest.requestURI}" th:classappend="${url} == '/produto/estoque' ? 'active' : ''"
+                   aria-current="page" href="/produto/estoque">Produtos Disponíveis</a>
+            </li>
         </ul>
-        <div class="d-flex">
-            <a href="/pedido/novo"><button class="btn btn-success my-2 mx-3" >Novo</button></a>
+        <div th:with="url=${#httpServletRequest.requestURI}" th:switch="${url}" class="d-flex">
+            <a th:case="'/produto/estoque'" href="/produto/novo"><button class="btn btn-success my-2 mx-3" >Novo Produto</button></a>
+
+            <a th:case="*" href="/pedido/novo"><button class="btn btn-success my-2 mx-3" >Novo</button></a>
         </div>
     </div>
 </nav>

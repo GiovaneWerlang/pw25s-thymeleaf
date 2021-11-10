@@ -6,24 +6,27 @@
 
 <div th:replace="~{base:: topo}"></div>
 
-<div class="container mt-3">
+<div class="container mt-3 mb-3">
 
     <div th:replace="~{base :: titulo('Produtos Disponíveis')}"></div>
 
-    <div class="card mt-3" th:each="produto: ${produtos}">
-        <div class="card-body row">
-            <div class="col-12 col-sm-8 mb-3">
-                <div class="mb-3">Nome: <input class="form-control" th:value="${produto.nome}" value="http://amazon.com/nome-do-produto"/></div>
+    <nav th:replace="~{base :: nav}"></nav> <!--- >se houverem erros, remover essa linha --->
 
-                <div class="row mb-1">
-                    <div class="col-md-5 mb-1">Valor: <span th:text="${#numbers.formatCurrency(produto.valor)}">R$ 200,00</span></div>
-                    <div class="col-md-7">País de Origem:
+    <div class="card mt-3 bg-light border-success" style="border-left-width: 12px" th:each="produto: ${produtos}">
+        <div class="card-body row px-5 ">
+            <div class="col-12 col-sm-8 mb-3">
+
+                <div class="row mb-1  py-4">
+                    <div class="my-2 py-2 px-4 text-success fs-2" >Nome: <span  class="px-5" th:text="${produto.nome}" value="http://amazon.com/nome-do-produto"></span></div>
+
+                    <div class="col-md-5 my-5 mb-1 fs-4">Valor: <span th:text="${#numbers.formatCurrency(produto.valor)}">R$ 200,00</span></div>
+                    <div class="col-md-7 my-5 mb-1 fs-4">País de Origem:
                         <span th:text="${produto.paisOrigem}">20/20/2010</span>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-4">
-                <img class="img-thumbnail" th:src="${produto.urlImagem}" src="">
+                <img class="img-thumbnail" style="border: none" th:src="${produto.urlImagem}" src="">
             </div>
         </div>
     </div>

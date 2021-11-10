@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<head th:replace="~{base :: head('Cadastro de Produto')}"></head>
+
 <body>
-$END$
+
+<div th:replace="~{base:: topo}"></div>
+
+<div class="container mt-3">
+
+    <div th:replace="~{base :: titulo('Novo Produto')}"></div>
+
+    <div class="card mt-3">
+
+        <form action="/produto/salvar" method="post" class="card-body" th:object="${produtoSalvarDTO}">
+            <div class="form-group mb-2">
+                <label for="nomeProduto">Nome</label>
+                <input th:field="*{nomeProduto}" th:errorclass="is-invalid" class="form-control"
+                       placeholder="Nome do pedido"/>
+                <small>Informe qual o nome do produto.</small>
+                <div th:errors="*{nomeProduto}" class="invalid-feedback"> Erros referentes ao nome do produto</div>
+            </div>
+            <div class="form-group mb-2">
+                <label for="valorProduto">Valor</label>
+                <input th:field="*{valorProduto}" th:errorclass="is-invalid" class="form-control"
+                       placeholder="Valor do produto"/>
+                <small>Informe o valor do produto.</small>
+                <div th:errors="*{valorProduto}" class="invalid-feedback"> Erros referentes ao valor do produto</div>
+            </div>
+            <div class="mb-2 form-group">
+                <label for="urlImagem">Imagem</label>
+                <input th:field="*{urlImagem}" th:errorclass="is-invalid" class="form-control"
+                       placeholder="Url da imagem"/>
+                <small>Insira a url de uma imagem com boa qualidade.</small>
+                <div th:errors="*{urlImagem}" class="invalid-feedback"> Erros referentes à url da imagem</div>
+            </div>
+            <div class="mb-2 form-group">
+                <label for="paisOrigem">Pais de Origem</label>
+                <input th:field="*{paisOrigem}" th:errorclass="is-invalid" class="form-control"
+                       placeholder="Pais de Origem"/>
+                <small>Insira o Pais de Origem.</small>
+                <div th:errors="*{paisOrigem}" class="invalid-feedback"> Erros referentes ao pais de origem</div>
+            </div>
+            <button class="btn btn-primary" type="submit">Concluir</button>
+        </form>
+    </div>
+
+</div>
 </body>
 </html>
