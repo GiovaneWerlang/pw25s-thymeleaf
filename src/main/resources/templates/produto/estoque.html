@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{base :: head('Produtos Disponíveis')}"></head>
+
+<body>
+
+<div th:replace="~{base:: topo}"></div>
+
+<div class="container mt-3">
+
+    <div th:replace="~{base :: titulo('Produtos Disponíveis')}"></div>
+
+    <div class="card mt-3" th:each="produto: ${produtos}">
+        <div class="card-body row">
+            <div class="col-12 col-sm-8 mb-3">
+                <div class="mb-3">Nome: <input class="form-control" th:value="${produto.nome}" value="http://amazon.com/nome-do-produto"/></div>
+
+                <div class="row mb-1">
+                    <div class="col-md-5 mb-1">Valor: <span th:text="${#numbers.formatCurrency(produto.valor)}">R$ 200,00</span></div>
+                    <div class="col-md-7">País de Origem:
+                        <span th:text="${produto.paisOrigem}">20/20/2010</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <img class="img-thumbnail" th:src="${produto.urlImagem}" src="">
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
